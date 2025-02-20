@@ -11,6 +11,8 @@ entries:
       Previously, [Smart Placement](/workers/configuration/smart-placement/) ensured Workers with D1 bindings were created in the same location as the D1 database.
 
       Now, all Workers which use Smart Placement use the same [placement logic](/workers/configuration/smart-placement/#understand-how-smart-placement-works), even if they have D1 bindings.
+
+      You can find the corresponding Worker changelog entry [here](/workers/platform/changelog/#2025-02-13).
   - publish_date: "2025-02-04"
     title: Fixed bug with D1 read-only access via UI and /query REST API.
     description: |-
