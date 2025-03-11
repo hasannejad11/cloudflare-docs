@@ -9,9 +9,9 @@ description: Develop your Workers locally.
 
 Cloudflare Workers provides two primary ways to develop and test your code locally. Local development ensures a fast feedback loop, keeps iteration times low, and lets you experiment before deploying to production.
 
-Developers can locally test their changes to a Workers project using the following:
+You can test changes locally using the following:
 
-- **Wrangler’s built-in dev command** [`wrangler dev`](/workers/wrangler/commands/#dev), which uses [`workerd`](https://github.com/cloudflare/workerd) and Miniflare to simulate production behavior and resource bindings locally.
+- **Wrangler’s built-in dev command** [`wrangler dev`](/workers/wrangler/commands/#dev), which uses [`workerd`](https://github.com/cloudflare/workerd) and Miniflare to simulate production behavior and resource bindings locally. Wrangler also offers the option to develop against remote resources with `wrangler dev --remote`, allowing you to test directly with data stored on Cloudflare's network.
 
 - The **Cloudflare Vite plugin** (`@cloudflare/vite-plugin`), which integrates directly with Vite and runs your code in the same `workerd` runtime, while also offering features like [hot module replacement (HMR)](https://vite.dev/guide/features.html#hot-module-replacement). The Vite plugin is currently considered in **beta**.
 
