@@ -631,6 +631,10 @@ Example:
 
 <Render file="envvar-example" />
 
+:::tip
+For details on how to work with environment variables in multiple environments, see [Managing environment variables across multiple environments](/workers/configuration/environment-variables/#managing-environment-variables-across-multiple-environments).
+:::
+
 ### Hyperdrive
 
 [Hyperdrive](/hyperdrive/) bindings allow you to interact with and query any Postgres database from within a Worker.
@@ -658,7 +662,7 @@ id = "<ID>"
 
 </WranglerConfig>
 
-### Images 
+### Images
 
 [Cloudflare Images](/images/transform-images/transform-via-workers/) lets you make transformation requests to optimize, resize, and manipulate images stored in remote sources.
 
@@ -1316,17 +1320,17 @@ A common example of using a redirected configuration is where a custom build too
 
 <WranglerConfig>
 
-  ```toml title="wrangler.toml"
-  name = "my-worker"
-  main = "src/index.ts"
-  [[kv_namespaces]]
-  binding = "<BINDING_NAME1>"
-  id = "<NAMESPACE_ID1>"
-  ```
+```toml title="wrangler.toml"
+name = "my-worker"
+main = "src/index.ts"
+[[kv_namespaces]]
+binding = "<BINDING_NAME1>"
+id = "<NAMESPACE_ID1>"
+```
 
 </WranglerConfig>
 
-  Note that this configuration points `main` at the user's code entry-point.
+Note that this configuration points `main` at the user's code entry-point.
 
 - Then, the user runs a custom build, which might read the user's Wrangler configuration file to find the source code entry-point:
 
