@@ -261,6 +261,8 @@ const session = env.DB.withSession("<constraint> or bookmark");
 - <code>bookmark</code>: <Type text="String"/><MetaInfo text="Optional"/>
   - A [`bookmark`](/d1/reference/time-travel/#bookmarks) from an existing D1 Session. This allows you to continue the existing Session using the `bookmark` as a reference point.
 
+- If no parameters are provided, `withSession` defaults to using the `first-unconstrained` parameter.
+
 #### Return values
 
 - <code>D1DatabaseSession</code>: <Type text="Object"/>
