@@ -4,8 +4,8 @@ import { getChangelogs, getRSSItems } from "~/util/changelog";
 
 export const GET: APIRoute = async ({ locals }) => {
 	const notes = await getChangelogs({
-		filter: (entry) => entry.data.hidden !== true });
-
+		filter: (entry) => entry.data.hidden !== true,
+	});
 
 	const items = await getRSSItems({
 		notes,
