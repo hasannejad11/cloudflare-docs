@@ -1,5 +1,5 @@
 ---
-title: Use secrets from your store with Workers
+title: Use Secrets Store with Workers
 pcx_content_type: tutorial
 sidebar:
   order: 1
@@ -11,3 +11,28 @@ Consider the steps below to learn how to use values from your account [Secrets S
 :::note
 This is different from Workers [Variables and Secrets](/workers/configuration/secrets/), where you define and manage your secrets on a per-Worker level.
 :::
+
+## Before you begin
+
+If using the Dashboard, make sure you already have a Workers application. Refer to [Get started](/workers/get-started/dashboard/) for guidance.
+
+### Set up account secrets in Secrets Store
+
+If there are no account secrets yet, follow the steps below. You must have a (TBC)[Super Administrator or a Secrets Store Admin role](/secrets-store/access-control/) within your Cloudflare account.
+
+1. Log in to the [Cloudflare dashboard](https://dash.cloudflare.com/) and select your account.
+2. Go to **Secrets Store** and select **Create secret**.
+3. Fill in the required fields, choosing _Workers_ as the **Permission scope**.
+:::note
+Once the secret is saved, the secret value will no longer be available for viewing.
+:::
+4. (Optional) Select **Add additional secret** to create more than one secret at a time.
+5. Select **Save** to confirm
+
+Refer to [manage account secrets](/secrets-store/manage-secrets/) for further options.
+
+## Bind an account secret to your worker
+
+### Option A: use the CLI
+
+### Option B: use the Dashboard
