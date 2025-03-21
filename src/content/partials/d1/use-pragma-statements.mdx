@@ -418,7 +418,7 @@ Attempts to optimize all schemas in a database by running the `ANALYZE` command 
 
 When `PRAGMA optimize` runs `ANALYZE`, it sets a limit to ensure the command does not take too long to execute. Alternatively, `PRAGMA optimize` may deem it unnecessary to run `ANALYZE` (for example, if the schema has not changed significantly). In this scenario, no optimizations are made.
 
-We recommend running this command after making any changes to the schema (for example, after [creating an index](d1/best-practices/use-indexes/)).
+We recommend running this command after making any changes to the schema (for example, after [creating an index](/d1/best-practices/use-indexes/)).
 
 :::note
 Currently, D1 does not support `PRAGMA optimize(-1)`.

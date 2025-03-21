@@ -16,7 +16,7 @@ By using Sessions API for read replication, all of your queries from a single Se
 
 To use read replication with the following Worker code and Sessions API:
 
-1. [Enable read replication](d1/best-practices/read-replication/#enable-read-replication)
+1. [Enable read replication](/d1/best-practices/read-replication/#enable-read-replication)
 2. Select `Deploy to Workers`.
 
 {/* Deploy to Workers button */}
@@ -160,13 +160,13 @@ async function resetTables(session: D1DatabaseSession) {
 
 When using D1 without read replication, D1 routes all queries (both read and write) to a specific database instance in [one location in the world](/d1/configuration/data-location/), known as the primary database instance. D1 request latency is dependent on the physical closeness of a user to the primary database instance. Users located further away from the primary database instance experience longer request latency due to [network round-trip time](https://www.cloudflare.com/learning/cdn/glossary/round-trip-time-rtt/).
 
-When using read replication, D1 introduces multiple “almost up-to-date” copies of the primary database instance which only serve read requests, called <GlossaryTooltip term="read replica"> read replicas </GlossaryTooltip>. D1 creates the read replicas in multiple regions throughout the world [across the Cloudflare network](d1/best-practices/read-replication/#read-replica-locations).
+When using read replication, D1 introduces multiple “almost up-to-date” copies of the primary database instance which only serve read requests, called <GlossaryTooltip term="read replica"> read replicas </GlossaryTooltip>. D1 creates the read replicas in multiple regions throughout the world [across the Cloudflare network](/d1/best-practices/read-replication/#read-replica-locations).
 
 A user may be located far away from the primary database instance but close to a read replica. When D1 routes read requests to the read replica instead of the primary database instance, the user enjoys shorter read request response times.
 
 D1 asynchronously replicates changes from the primary database instance to all read replicas. This means that at any given time, a read replica may be arbitrarily out of date. The time it takes for the latest committed data in the primary database instance to be replicated to the read replica is known as the <GlossaryTooltip term="replica lag"> replica lag </GlossaryTooltip>.
 
-It is replica lag and non-deterministic routing to individual replicas that can lead to application data consistency issues, which Sessions API help handle by ensuring sequential consistency. For more information refer to [Replica lag and consistency model](d1/best-practices/read-replication/#replica-lag-and-consistency-model).
+It is replica lag and non-deterministic routing to individual replicas that can lead to application data consistency issues, which Sessions API help handle by ensuring sequential consistency. For more information refer to [Replica lag and consistency model](/d1/best-practices/read-replication/#replica-lag-and-consistency-model).
 
 :::note
 All write queries are still forwarded to the primary database instance. Read replication only improves the query response time for read requests.
@@ -379,7 +379,7 @@ const result = await session.run()
 
 {/* #### Example of using `bookmark`
 
-This example follows from [Example of using `first-primary`](d1/best-practices/read-replication/#example-of-using-first-primary), but retrieves the `bookmark` from HTTP cookie.
+This example follows from [Example of using `first-primary`](/d1/best-practices/read-replication/#example-of-using-first-primary), but retrieves the `bookmark` from HTTP cookie.
 
 ```ts collapse={1-10, 22-42, 61-86}
 import { ListBillStatementsResult, GetBillStatementResult, Bill } from './types';

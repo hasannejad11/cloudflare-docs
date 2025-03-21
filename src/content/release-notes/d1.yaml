@@ -94,7 +94,7 @@ entries:
 
       * Developers with a Workers Paid plan now have a 10GB GB per-database limit (up from 2GB), which can be combined with existing limit of 50,000 databases per account.
       * Developers with a Workers Free plan retain the 500 MB per-database limit and can create up to 10 databases per account.
-      * D1 databases can be [exported](d1/best-practices/import-export-data/#export-an-existing-d1-database) as a SQL file.
+      * D1 databases can be [exported](/d1/best-practices/import-export-data/#export-an-existing-d1-database) as a SQL file.
 
   - publish_date: "2024-03-12"
     title: Change in `wrangler d1 execute` default
@@ -174,7 +174,7 @@ entries:
   - publish_date: "2023-08-19"
     title: Row count now returned per query
     description: |-
-      D1 now returns a count of `rows_written` and `rows_read` for every query executed, allowing you to assess the cost of query for both [pricing](/d1/platform/pricing/) and [index optimization](d1/best-practices/use-indexes/) purposes.
+      D1 now returns a count of `rows_written` and `rows_read` for every query executed, allowing you to assess the cost of query for both [pricing](/d1/platform/pricing/) and [index optimization](/d1/best-practices/use-indexes/) purposes.
 
       The `meta` object returned in [D1's Client API](/d1/worker-api/return-object/#d1result) contains a total count of the rows read (`rows_read`) and rows written (`rows_written`) by that query. For example, a query that performs a full table scan (for example, `SELECT * FROM users`) from a table with 5000 rows would return a `rows_read` value of `5000`:
       ```json
