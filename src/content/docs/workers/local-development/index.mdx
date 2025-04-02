@@ -15,24 +15,22 @@ You can test changes locally using the following:
 
 - The **Cloudflare Vite plugin** (`@cloudflare/vite-plugin`), which integrates directly with [Vite](https://vite.dev/) and runs your code in the [Workers Runtime](/workers/reference/how-workers-works/) ([`workerd`](https://github.com/cloudflare/workerd)) to simulate production behavior and resource bindings locally. The Vite plugin also offers features like [hot module replacement (HMR)](https://vite.dev/guide/features.html#hot-module-replacement) and access to Vite's ecosystem and build time transformations. It is currently in **open beta**.
 
-Both approaches aim to provide confidence that your local environment will closely match the production runtime, removing the need to [test against remote resources](#develop-using-remote-resources-and-bindings).
-
 ## Choosing Between Wrangler and Vite
 
 Deciding between Wrangler and the Cloudflare Vite plugin depends on your project's focus and development workflow. Here are some quick guidelines to help you choose:
 
-### When to use Wrangler:
+### When to use Wrangler
 
 - **Backend & Workers-focused:**
   If you're primarily building APIs, serverless functions, or background tasks that need to closely match production behavior, use Wrangler.
 
-- **Real Cloudflare resources:**
-  Need to test actual Cloudflare data or services? Wrangler’s `--remote` flag lets you do so without fully deploying to production.
+- **Remote development:**
+  If your project needs the ability to develop and test using production resources and data, use Wrangler's `--remote` flag.
 
 - **Simple frontends:**
   If you have minimal frontend requirements and don’t need hot reloading or advanced bundling, Wrangler by itself is sufficient.
 
-### When to use the Cloudflare Vite Plugin:
+### When to use the Cloudflare Vite Plugin
 
 - **Frontend-centric development:**
   If you rely on modern frameworks like React, Vue, Svelte, or Solid, the Vite plugin simplifies setup and integration.
@@ -41,4 +39,4 @@ Deciding between Wrangler and the Cloudflare Vite plugin depends on your project
   If you need near-instant updates in the browser, the Vite plugin provides Hot Module Replacement (HMR) during local development.
 
 - **Advanced optimizations:**
-  If you require more advanced optimizations (tree-shaking, code splitting, efficient bundling, CSS handling, etc), Vite is a strong fit.
+  If you require more advanced optimizations (code splitting, efficient bundling, CSS handling, etc), Vite is a strong fit.
