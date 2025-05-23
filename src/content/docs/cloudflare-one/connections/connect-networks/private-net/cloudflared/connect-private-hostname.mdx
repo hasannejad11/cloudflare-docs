@@ -64,9 +64,12 @@ This section covers how to enable remote access to a private hostname applicatio
 
 ### 2. Connect the DNS server to Cloudflare
 
+--------to do------
 Route the IP address of your internal DNS resolver through the tunnel.
 
 ### 3. Create a resolver policy
+
+To resolve the private hostname through Cloudflare:
 
 1. [Create a Gateway resolver policy](cloudflare-one/policies/gateway/resolver-policies/#create-a-resolver-policy) that matches the following traffic:
 
@@ -101,14 +104,23 @@ Route the IP address of your internal DNS resolver through the tunnel.
 
 ### 5. Route private network IPs through WARP
 
+--------to do------
+
 - Initial resolved IP CGNAT range: `100.80.0.0/16`
 - Private network CIDR where the application is located, e.g. `10.0.0.0/8`. (Still need to know the IP range of the network. Do not need to know the specific IP of the application)
 - Internal DNS resolver IP
 
 ### 6. (Recommended) Filter network traffic with Gateway
 
-#### Enable Gateway proxy for TCP and UDP
+--------to do------
+
+#### Enable Gateway proxy
+
+<Render file="tunnel/enable-gateway-proxy" />
+
 #### Zero Trust policies
+
+--------to do------
 
 If you're running a private app on port 443:
 
@@ -121,6 +133,9 @@ Self-hosted private apps and Gateway network policies are not currently supporte
 
 ### 7. Connect as a user
 
+End users can now reach the application by going to its private hostname. For example, to test an HTTP application, you can open a browser and go to `wiki.internal.local`.
+
+---- what's a good example for a non-HTTP app?---
 
 
 ## Supported on-ramps/off-ramps
