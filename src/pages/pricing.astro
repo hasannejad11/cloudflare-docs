@@ -235,19 +235,13 @@ const categories = [
 									<thead>
 										<tr class="border-b border-gray-200 dark:border-gray-700">
 											<th class="text-left py-2 pr-4">Component</th>
-											<th class="text-left py-2 px-4">Included</th>
-											<th class="text-left py-2 px-4">Additional usage</th>
+											<th class="text-left py-2 px-4">Pricing</th>
 										</tr>
 									</thead>
 									<tbody>
 										{product.components.map((component, idx) => (
 											<tr class={idx < product.components.length - 1 ? "border-b border-gray-100 dark:border-gray-800" : ""}>
 												<td class="py-3 pr-4">{component.name}</td>
-												<td class="py-3 px-4">
-													<span class="font-semibold" style="color: var(--sl-color-green-high)">
-														{component.included}
-													</span>
-												</td>
 												<td class="py-3 px-4">
 													{component.price !== "Free" ? (
 														<>
@@ -273,12 +267,6 @@ const categories = [
 	<section class="mt-12">
 		<h2 class="text-2xl font-bold mb-4">Frequently Asked Questions</h2>
 
-		<Details header="How does the $5 minimum work?">
-			<p>
-				You'll be charged $5/month minimum, which covers included usage across all developer products. Any usage beyond the included amounts is charged at the rates shown above.
-			</p>
-		</Details>
-
 		<Details header="What are Class A and Class B operations in R2?">
 			<p>
 				Class A operations include ListBuckets, PutBucket, ListObjects, PutObject, CopyObject, CompleteMultipartUpload, CreateMultipartUpload, ListMultipartUploads, UploadPart, UploadPartCopy, ListParts, PutBucketEncryption, PutBucketCors, and PutBucketLifecycleConfiguration. Class B operations include HeadBucket, HeadObject, GetObject, UsageSummary, GetBucketEncryption, GetBucketLocation, GetBucketCors, and GetBucketLifecycleConfiguration.
@@ -293,7 +281,7 @@ const categories = [
 
 		<Details header="Is there a free tier?">
 			<p>
-				Yes! The included usage shown above is available with the $5/month subscription. Many developers can run their applications entirely within the included usage.
+				Cloudflare offers a generous free tier across many products. Check individual product documentation for specific free tier limits.
 			</p>
 		</Details>
 
