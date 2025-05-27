@@ -139,15 +139,66 @@ For more details on configuring Split Tunnels, refer to [Route private network I
 
 If your private hostname points to an HTTPS application on port 443, you can secure it using either Access or Gateway policies:
 
-	- Option 1 (Recommended): Create an [Access self-hosted private app](/cloudflare-one/applications/non-http/self-hosted-private-app/) to manage user access alongside your SaaS and other web apps.
+	- **Option 1 (Recommended)**: Create an [Access self-hosted private app](/cloudflare-one/applications/non-http/self-hosted-private-app/) to manage user access alongside your SaaS and other web apps.
 
-	- Option 2: If you prefer to secure a private network using a traditional firewall model, build Gateway network and DNS policies using the [SNI](/cloudflare-one/policies/gateway/network-policies/#sni) or [SNI Domain](/cloudflare-one/policies/gateway/network-policies/#sni-domain) selector. For more information on building Gateway policies, refer to [Secure your first application](/learning-paths/replace-vpn/build-policies/create-policy/) and [Common network policies](/cloudflare-one/policies/gateway/network-policies/common-policies/#restrict-access-to-private-networks).
+	- **Option 2**: If you prefer to secure the application using a traditional firewall model, build Gateway network policies using the [SNI](/cloudflare-one/policies/gateway/network-policies/#sni) or [SNI Domain](/cloudflare-one/policies/gateway/network-policies/#sni-domain) selector. For an additional layer of protection, add a Gateway DNS policy to allow or block the [Host](/cloudflare-one/policies/gateway/dns-policies/#host) or [Domain](/cloudflare-one/policies/gateway/dns-policies/#domain) from resolving.
+
+		<Details header="Example network policies">
+		The following example consists of two policies: the first allows specific users to reach your application, and the second blocks all other traffic.
+
+		1. Allow company employees
+
+		| Selector       | Operator      | Value            | Logic | Action |
+		| -------------- | ------------- | ---------------- | ----- | ------ |
+		| SNI            | is            | `wiki.internal.com` | And   | Allow  |
+		| User Email     | matches regex | `.*@example.com` |       |        |
+
+		2. Catch-all block policy
+
+		| Selector       | Operator | Value        | Action |
+		| -------------- | -------- | ------------ | ------ |
+		| Destination IP | in       | `10.0.0.0/8` | Block  |
+		</Details>
+
+		<Details header="Example DNS policy">
+
+		| Selector       | Operator      | Value            | Logic | Action |
+		| -------------- | ------------- | ---------------- | ----- | ------ |
+		| Host           | is            | `wiki.internal.com` | And   | Allow  |
+		| User Email     | matches regex | `.*@example.com` |       |        |
+			</Details>
+
 
 ##### Non-HTTPS applications
 
 Access policies and Gateway network policies only support hostname-based filtering for applications on port 443. If your application runs on a non-443 port, you will need to allow or block network traffic using the [Destination IP](/cloudflare-one/policies/gateway/network-policies/#destination-ip) selector. Then, add a Gateway DNS policy to allow or block the [Host](/cloudflare-one/policies/gateway/dns-policies/#host) or [Domain](/cloudflare-one/policies/gateway/dns-policies/#domain) from resolving.
+		<Details header="Example network policies">
+		The following example consists of two policies: the first allows specific users to reach your application, and the second blocks all other traffic.
 
-For more information on building Gateway policies, refer to [Secure your first application](/learning-paths/replace-vpn/build-policies/create-policy/) and [Common network policies](/cloudflare-one/policies/gateway/network-policies/common-policies/#restrict-access-to-private-networks).
+		1. Allow company employees
+
+		| Selector       | Operator      | Value            | Logic | Action |
+		| -------------- | ------------- | ---------------- | ----- | ------ |
+		| Destination IP  | in            | `10.0.0.0/8`   | And   | Allow  |
+		| User Email     | matches regex | `.*@example.com` |       |        |
+
+		2. Catch-all block policy
+
+		| Selector       | Operator | Value        | Action |
+		| -------------- | -------- | ------------ | ------ |
+		| Destination IP | in       | `10.0.0.0/8` | Block  |
+
+		</Details>
+
+
+		<Details header="Example DNS policy">
+
+		| Selector       | Operator      | Value            | Logic | Action |
+		| -------------- | ------------- | ---------------- | ----- | ------ |
+		| Host           | is            | `wiki.internal.com` | And   | Allow  |
+		| User Email     | matches regex | `.*@example.com` |       |        |
+		</Details>
+
 
 ### 7. Connect as a user
 

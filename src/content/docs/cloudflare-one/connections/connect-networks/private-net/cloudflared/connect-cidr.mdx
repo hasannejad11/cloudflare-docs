@@ -39,6 +39,32 @@ To connect your infrastructure with Cloudflare Tunnel:
 
 If you have applications clearly defined by IPs or hostnames, we recommend [creating an Access application](/cloudflare-one/applications/non-http/self-hosted-private-app/) and managing user access alongside your SaaS and other web apps. Alternatively, if you prefer to secure a private network using a traditional firewall model, you can build Gateway network and DNS policies for IP ranges and domains.
 
+		<Details header="Example network policies">
+		The following example consists of two policies: the first allows specific users to reach your application, and the second blocks all other traffic.
+
+		1. Allow company employees
+
+		| Selector       | Operator      | Value            | Logic | Action |
+		| -------------- | ------------- | ---------------- | ----- | ------ |
+		| Destination IP  | in            | `10.0.0.0/8`   | And   | Allow  |
+		| User Email     | matches regex | `.*@example.com` |       |        |
+
+		2. Catch-all block policy
+
+		| Selector       | Operator | Value        | Action |
+		| -------------- | -------- | ------------ | ------ |
+		| Destination IP | in       | `10.0.0.0/8` | Block  |
+
+		</Details>
+
+				<Details header="Example DNS policy">
+
+		| Selector       | Operator      | Value            | Logic | Action |
+		| -------------- | ------------- | ---------------- | ----- | ------ |
+		| Host           | is            | `wiki.internal.com` | And   | Allow  |
+		| User Email     | matches regex | `.*@example.com` |       |        |
+		</Details>
+
 For more information on building Gateway policies, refer to [Secure your first application](/learning-paths/replace-vpn/build-policies/create-policy/) and [Common network policies](/cloudflare-one/policies/gateway/network-policies/common-policies/#restrict-access-to-private-networks).
 
 ## 5. Connect as a user
