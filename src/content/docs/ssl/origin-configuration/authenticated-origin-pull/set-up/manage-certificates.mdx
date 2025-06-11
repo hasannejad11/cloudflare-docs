@@ -64,3 +64,10 @@ However, requests are dropped at your origin if your origin only accepts a valid
 2. [Check whether new certificate is Active](/api/resources/origin_tls_client_auth/methods/get/).
 
 3. Once certificate is active, [delete the previous certificate](/api/resources/origin_tls_client_auth/methods/delete/).
+
+:::note[Note]
+
+
+The API will say "active" for two certs if two are present, but the most recently uploaded certificate will be what's enabled and used.
+
+:::
