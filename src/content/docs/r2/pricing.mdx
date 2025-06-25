@@ -32,6 +32,16 @@ To learn about potential cost savings from using R2, refer to the [R2 pricing ca
 | Data Retrieval (processing)        | None                     | $0.01 / GB                                              |
 | Egress (data transfer to Internet) | Free [^1]                | Free [^1]                                               |
 
+:::caution[Billable unit rounding]
+Cloudflare rounds up your usage to the next billing unit.
+
+For example:
+
+- If you have performed one million and one operations, you will be billed for two million operations.
+- If you have used 1.1 GB-month, you will be billed for 2 GB-month.
+- If you have retrieved data (for infrequent access storage) for 1.1 GB, you will be billed for 2 GB.
+:::
+
 ### Free tier
 
 You can use the following amount of storage and operations each month for free. The free tier only applies to Standard storage.
