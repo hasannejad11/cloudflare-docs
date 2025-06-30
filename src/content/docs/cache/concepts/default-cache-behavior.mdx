@@ -31,7 +31,10 @@ When [Origin Cache Control](/cache/concepts/cache-control/) is enabled on an Ent
 
 ## Client side range requests
 
-Cloudflare supports clients to send range requests to be served from the cache. For a cacheable request, if the origin response includes a `Content-Length` header, then the specified byte range will be returned with a HTTP 206 response. If it does not include the `Content-Length` header, the cache will return the full content with a HTTP 200 response.
+Clients can send range requests to be served from the cache. For a cacheable request:
+
+ - If the origin response includes a `Content-Length` header, then the specified byte range will be returned with a HTTP 206 response.
+ - If the origin response does not include the `Content-Length` header, the cache will return the full content with a HTTP 200 response.
 
 ## Default cached file extensions
 
