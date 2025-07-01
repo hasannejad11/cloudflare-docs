@@ -10,7 +10,7 @@ entries:
     description: |-
       * We’ve added local development support to Browser Rendering, making it simpler than ever to test and iterate before deploying.
   - publish_date: "2025-06-30"
-    title: New Web Bot Auth Headers
+    title: New Web Bot Auth headers
     description: |-
       * Browser Rendering now supports [Web Bot Auth](/reference/automatic-request-headers/) by automatically attaching `Signature-agent`, `Signature`, and `Signature-input ` headers to verify that a request originates from Cloudflare Browser Rendering. 
   - publish_date: "2025-06-27"
