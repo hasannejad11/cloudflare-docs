@@ -6,7 +6,7 @@ productArea: Developer platform
 productAreaLink: /workers/platform/changelog/platform/
 entries:
   - publish_date: "2025-07-01"
-    title: Local Development Support
+    title: Local development support
     description: |-
       * We added local development support to Browser Rendering, making it simpler than ever to test and iterate before deploying.
   - publish_date: "2025-06-30"
