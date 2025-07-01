@@ -1,0 +1,32 @@
+---
+pcx_content_type: tutorial
+title: Optimize mobile viewing with lazy loading
+description: Lazy loading is an easy way to optimize the images on your webpages for mobile devices, with faster page load times and lower costs.
+sidebar:
+  order: 1
+---
+
+Lazy loading is an easy way to optimize the images on your webpages for mobile viewing. Lazy loading has two main advantages:
+* **Faster page load times** — Images are loaded as the user scrolls down the page, instead of all at once when the page is opened. This means faster page load times, especially for mobile users who may experience slow network connections or weak processing capabilities.
+* **Lower costs for image delivery** — You only pay to load images that the user actually sees. If an image is not scrolled into view by the user, it is not loaded, so it will not count toward your billable requests.
+
+Lazy loading is natively supported on all Chromium-based browsers like Chrome, Safari, Firefox, Opera, and Edge.
+
+:::note
+If you use older methods, involving custom Javascript or a Javascript library, lazy loading may increase the initial load time of the page since the browser needs to download, parse, and execute Javascript.
+:::
+
+## How to set up lazy loading
+
+To set up lazy loading, modify the `loading` attribute of your `<img>` tags to be `"lazy"`. For example:
+
+````HTML
+<img src="example.com/cdn-cgi/width=300/image.png" loading="lazy">
+````
+
+:::note[Exception for images in the viewport]
+If you have images that are in the viewport, these will load faster with a `loading` attribute of `"eager"` instead of `"lazy"`. For example:
+````HTML
+<img src="example.com/cdn-cgi/width=300/image.png" loading="lazy">
+````
+:::
