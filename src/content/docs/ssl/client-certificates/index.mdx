@@ -10,10 +10,13 @@ description: Use Cloudflare public key infrastructure (PKI) to create client cer
 
 import { GlossaryDefinition, Render } from "~/components";
 
-Use Cloudflare public key infrastructure (PKI) to create client certificates and enable mutual TLS authentication.
+Use Cloudflare public key infrastructure (PKI) to create client certificates, or [bring your own CA for mTLS](/ssl/client-certificates/byo-ca/).
 
 <GlossaryDefinition term="mTLS (mutual TLS)" />
 
+:::note[mTLS at Cloudflare]
+For a broader overview of mTLS at Cloudflare refer to the [learning path](/learning-paths/mtls/concepts/).
+:::
 ---
 
 Use these certificates with Cloudflare [API Shield](/api-shield/) or [Cloudflare Workers](/workers/runtime-apis/bindings/mtls/) to enforce mutual Transport Layer Security (mTLS) encryption.
