@@ -8,7 +8,7 @@ entries:
   - publish_date: "2025-07-01"
     title: Local Development Support
     description: |-
-      * We’ve added local development support to Browser Rendering, making it simpler than ever to test and iterate before deploying.
+      * We added local development support to Browser Rendering, making it simpler than ever to test and iterate before deploying.
   - publish_date: "2025-06-30"
     title: New Web Bot Auth headers
     description: |-
