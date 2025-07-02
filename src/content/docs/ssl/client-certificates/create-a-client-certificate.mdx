@@ -8,26 +8,20 @@ sidebar:
 
 To create a client certificate in the Cloudflare dashboard:
 
-1. Log in to the [Cloudflare dashboard](https://dash.cloudflare.com) and select your account and application.
+1. Log in to the [Cloudflare dashboard](https://dash.cloudflare.com) and select your account and zone/domain.
 2. Go to **SSL** > **Client Certificates**.
-3. Select **Create Certificate**.
+3. Select **Create Certificate** and fill in the required fields. You can choose one of the following options:
 
-    :::caution
+- Generate a private key and Certificate Signing Request (CSR) with Cloudflare.
+- Use your own private key and CSR which allows you to also [label client certificates](/ssl/client-certificates/label-client-certificate/).
 
-    By default, client certificates are issued by a Cloudflare Managed CA. Cloudflare generates a unique CA for each account.
+:::note
+Client certificates created on the dashboard are issued by a [Cloudflare-managed CA](/ssl/client-certificates/#scope). If you need to use certificates issued by another CA, use the API to [bring your own CA](/ssl/client-certificates/byo-ca/).
+:::
 
-    If you need to use certificates issued by another CA, use the API to [bring your own CA for mTLS](/ssl/client-certificates/byo-ca/).
-    :::
+5. Select a value for **Certificate Validity**, and choose **Create** to confirm.
 
-4. For **Private key type**, select a value.
-
-5. For **Certificate Validity**, select a value. The default value is 10 years.
-
-6. Select **Create**.
-
-7. To copy the certificate or private key to your clipboard, use the **click to copy** link.
-
-8. To close the dialog, select **OK**.
+6. Make sure to copy the certificate and private key. Select **OK** to go back to your client certificates list.
 
 ## Next steps
 
