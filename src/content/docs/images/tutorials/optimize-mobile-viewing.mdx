@@ -6,13 +6,11 @@ sidebar:
   order: 1
 ---
 
-You can use lazy loading to optimize the images on your webpages for mobile viewing. Lazy loading works by deferring the loading of resources, like images, on a page until they are actually needed. This helps address common challenges of mobile viewing, like slow network connections or weak processing capabilities.
+You can use lazy loading to optimize the images on your webpages for mobile viewing. This helps address common challenges of mobile viewing, like slow network connections or weak processing capabilities.
 
 Lazy loading has two main advantages:
 * **Faster page load times** — Images are loaded as the user scrolls down the page, instead of all at once when the page is opened.
 * **Lower costs for image delivery** — When using Cloudflare Images, you only pay to load images that the user actually sees. With lazy loading, images that are not scrolled into view do not count toward your billable Images requests.
-
-Without lazy loading, for most browsers, all images are fetched by default, which takes longer. Images are prioritized based on their distance from the viewport, so images in or close to the viewport are loaded first.
 
 Lazy loading is natively supported on all Chromium-based browsers like Chrome, Safari, Firefox, Opera, and Edge.
 
@@ -22,11 +20,13 @@ If you use older methods, involving custom Javascript or a Javascript library, l
 
 ## Modify your loading attribute
 
-There are two possible `loading` attributes for your `<img>` tags: `lazy` and `eager`.
+Without modifying your loading attribute, most browsers will fetch all images on a page, prioritizing the images that are closest to the viewport by default. You can override this by modifying your `loading` attribute.
+
+There are two possible `loading` attributes for your `<img>` tags: `lazy` and  `eager`.
 
 ### Lazy loading
 
-Lazy loading is recommended for most images.
+Lazy loading is recommended for most images. With Lazy loading, resources like images are deferred until it reaches a certain distance from the viewpoint. If an image doesn't reach the threshold, then it does not get loaded.
 
 Example of modifying the `loading` attribute of your `<img>` tags to be `"lazy"`:
 ````HTML
@@ -35,7 +35,7 @@ Example of modifying the `loading` attribute of your `<img>` tags to be `"lazy"`
 
 ### Eager loading
 
-If you have images that are in the viewport, eager loading, instead of lazy loading, is recommended.
+If you have images that are in the viewport, eager loading, instead of lazy loading, is recommended. Eager loading loads the asset at the initial page load, regardless of its location on the page.
 
 Example of modifying the `loading` attribute of your `<img>` tags to be `"eager"`:
 ````HTML
