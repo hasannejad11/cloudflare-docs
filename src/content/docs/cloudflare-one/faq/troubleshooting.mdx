@@ -377,7 +377,7 @@ Cloudflare Access uses a [`CF_Session` cookie](/cloudflare-one/identity/authoriz
 
 ## Long-lived SSH sessions frequently disconnect.
 
-All SSH connections proxied through Cloudflare Gateway, including traffic to [Access for Infrastructure](/cloudflare-one/connections/connect-networks/use-cases/ssh/ssh-infrastructure-access/) targets, have a maximum expected duration of 10 hours. This is because Gateway terminates connections over 10 hours when releasing service updates; releases are not scheduled and can occur multiple times a week. To ensure a consistent user experience, you can configure your environment to automatically terminate sessions over 10 hours. For example, you could require users to sign in once a day so that connections do not cut off unexpectedly during the work day.
+All SSH connections proxied through Cloudflare Gateway, including traffic to [Access for Infrastructure](/cloudflare-one/connections/connect-networks/use-cases/ssh/ssh-infrastructure-access/) targets, have a maximum expected duration of 10 hours. This is because Gateway terminates connections over 10 hours when releasing service updates; releases are not scheduled and can occur multiple times a week. To ensure a consistent user experience, we recommend configuring your environment to automatically terminate sessions over 10 hours. For example, you could require users to sign in once a day so that connections do not cut off unexpectedly during the work day.
 
 One option is to add [`ControlPersist`](https://man.openbsd.org/ssh_config#ControlPersist) to your personal (`~/.ssh/config`) or global (`/etc/ssh/ssh_config`) SSH client configuration file:
 
